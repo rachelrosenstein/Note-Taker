@@ -1,20 +1,43 @@
-// Dependencies: 
+
+//dependencies:
 var express = require("express");
 var path = require("path");
+var fs = require("fs");
+var notes;
 
+//set up express app:
 var app = express();
-var PORT = 3000;
+var PORT = process.env.PORT || 3000;
 
-// Sets up the Express app to handle data parsing
+//set up express app to handle data parsing:
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(express.static('public'))
 
-// DATA/ Notes being collected
+//import db.json
+
+function savedNotes() {
 
 
-// Routes
+}
 
-app.get("/", function (req, res) {
-    res.sendFile(path.join(__dirname, "index.html"));
+var savedNotes = fs.readFileSync("./Develop/db/db.json", "UTF-8");
+
+
+//basic routes:
+
+app.get("/notes", function (req, res) {
+    res.sendFile(path.join(__dirname, "Develop/public/notes.html"));
+})
+
+app.get("*", function (req, res) {
+    res.sendFile(path.join(__dirname, "Develop/public/index.html"));
+})
+
+
+
+
+//server is listening
+app.listen(PORT, function () {
+    console.log("App listening on PORT " + PORT);
 });
-
