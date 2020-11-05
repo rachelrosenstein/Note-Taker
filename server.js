@@ -16,12 +16,6 @@ app.use(express.static('public'))
 
 //import db.json
 
-function savedNotes() {
-
-
-}
-
-var savedNotes = fs.readFileSync("./Develop/db/db.json", "UTF-8");
 
 
 //basic routes:
@@ -30,9 +24,16 @@ app.get("/notes", function (req, res) {
     res.sendFile(path.join(__dirname, "Develop/public/notes.html"));
 })
 
-app.get("*", function (req, res) {
+app.get("/", function (req, res) {
     res.sendFile(path.join(__dirname, "Develop/public/index.html"));
 })
+
+app.get("/api/notes", function (req, res) {
+    readFileAsync(path.join(__dirname, "./Develop/db/db.json"), "utf8")
+        .then(function (data) {
+            return res.json(JSON.parse(data));
+        });
+});
 
 
 
