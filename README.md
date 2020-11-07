@@ -4,7 +4,7 @@
 
 The application frontend has already been created, it's your job to build the backend and connect the two.
 
-![Screen Shot of application](/Users/rachel/Note-Taker/Notes.png)
+![Screen Shot of application](https://github.com/rachelrosenstein/Note-Taker/blob/main/Notes.png?raw=true)
 
 
 The following HTML routes should be created:
