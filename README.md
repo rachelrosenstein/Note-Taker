@@ -1,6 +1,7 @@
 # Note Taker
 
 ## Description
+![Screen Shot of application](https://github.com/rachelrosenstein/Note-Taker/blob/main/Application.png?raw=true)
 
 The application frontend has already been created, it's your job to build the backend and connect the two.
 
